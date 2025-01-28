@@ -39,6 +39,8 @@ void FruitUtils::sort(FruitBox& unsorted, FruitBox& lemon, FruitBox& citrus, Fru
 
 FruitBox** FruitUtils::pack(IFruit** fruits, unsigned int boxSize)
 {
+    if (fruits == nullptr)
+        return nullptr;
     int nbFruits;
     for (nbFruits = 0; fruits[nbFruits] != nullptr; nbFruits++) {}
     const unsigned int nbBox = nbFruits / boxSize + (nbFruits % boxSize == 0 ? 0 : 1);
@@ -56,6 +58,8 @@ FruitBox** FruitUtils::pack(IFruit** fruits, unsigned int boxSize)
 
 IFruit** FruitUtils::unpack(FruitBox** fruitBoxes)
 {
+    if (fruitBoxes == nullptr)
+        return nullptr;
     unsigned int nbFruits = 0;
     for (int boxIdx = 0; fruitBoxes[boxIdx] != nullptr; boxIdx++) {
         nbFruits += fruitBoxes[boxIdx]->nbFruits();
