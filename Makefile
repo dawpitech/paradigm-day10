@@ -16,6 +16,7 @@ CPPFLAGS	+=	-Wshadow
 CPPFLAGS	+=	-Wunreachable-code
 CPPFLAGS	+=	-pedantic
 CPPFLAGS	+=	-iquote .
+CPPFLAGS	+=	-iquote include
 
 BDIR	=	.build/release
 
@@ -36,6 +37,7 @@ SRC	+=	Raspberry.cpp
 SRC	+=	Coconut.cpp
 SRC	+=	FruitUtils.cpp
 SRC	+=	FruitFactory.cpp
+SRC	+=	FruitMixer.cpp
 
 OBJ = $(SRC:%.cpp=$(BDIR)/%.o)
 
