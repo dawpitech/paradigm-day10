@@ -8,9 +8,9 @@
 #ifndef LEMON_HPP
     #define LEMON_HPP
 
-    #include "AFruit.hpp"
+    #include "ACitrus.hpp"
 
-class Lemon final : public AFruit
+class Lemon final : public ACitrus
 {
     public:
         explicit Lemon();
