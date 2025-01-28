@@ -7,20 +7,26 @@
 
 #include <iostream>
 
-#include "Almond.hpp"
+
 #include "Orange.hpp"
 #include "Strawberry.hpp"
+#include "Lemon.hpp"
+#include "Almond.hpp"
+#include "FruitBox.hpp"
 
 int main()
 {
-    Orange o;
-    Strawberry s;
-    const Almond a;
-    IFruit& f = o;
-    std::cout << o.getName() << ": " << o.getVitamins() << " vitamins" << std::endl;
-    std::cout << s << std::endl;
-    std::cout << a << std::endl;
-    o.peel();
-    std::cout << f << std::endl;
+    FruitBox box(3);
+    const FruitBox& cref = box;
+    box.pushFruit(new Orange());
+    box.pushFruit(new Strawberry());
+    box.pushFruit(new Lemon());
+    std::cout << cref << std::endl;
+    IFruit* tmp = new Almond();
+    std::cout << box.pushFruit(tmp) << std::endl;
+    delete tmp;
+    tmp = box.popFruit();
+    delete tmp;
+    std::cout << cref << std::endl;
     return 0;
 }

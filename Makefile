@@ -29,6 +29,7 @@ SRC	+=	Lemon.cpp
 SRC	+=	Orange.cpp
 SRC	+=	Strawberry.cpp
 SRC	+=	Almond.cpp
+SRC	+=	FruitBox.cpp
 
 OBJ = $(SRC:%.cpp=$(BDIR)/%.o)
 
