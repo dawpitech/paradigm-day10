@@ -33,3 +33,40 @@ void FruitUtils::sort(FruitBox& unsorted, FruitBox& lemon, FruitBox& citrus, Fru
     while(buffer.nbFruits() > 0)
         unsorted.pushFruit(buffer.popFruit());
 }
+
+FruitBox** FruitUtils::pack(IFruit** fruits, unsigned int boxSize)
+{
+    int nbFruits;
+    for (nbFruits = 0; fruits[nbFruits] != nullptr; nbFruits++) {}
+    const unsigned int nbBox = nbFruits / boxSize + (nbFruits % boxSize == 0 ? 0 : 1);
+
+    auto** boxes = new FruitBox*[nbBox + 1];
+    boxes[nbBox] = nullptr;
+    for (int idx = 0; idx < nbBox; idx++) {
+        boxes[idx] = new FruitBox(boxSize);
+    }
+    for (int idx = 0; idx < nbFruits; idx++) {
+        boxes[idx % nbBox]->pushFruit(fruits[idx]);
+    }
+    return boxes;
+}
+
+IFruit** FruitUtils::unpack(FruitBox** fruitBoxes)
+{
+    unsigned int nbFruits = 0;
+    for (int boxIdx = 0; fruitBoxes[boxIdx] != nullptr; boxIdx++) {
+        nbFruits += fruitBoxes[boxIdx]->getSize();
+    }
+    auto** fruits = new IFruit*[nbFruits + 1];
+    fruits[nbFruits] = nullptr;
+    int boxIdx = 0;
+    for (int idx = 0; idx < nbFruits; idx++) {
+        auto elem = fruitBoxes[boxIdx]->popFruit();
+        if (elem == nullptr) {
+            boxIdx++;
+            elem = fruitBoxes[boxIdx]->popFruit();
+        }
+        fruits[idx] = elem;
+    }
+    return fruits;
+}
