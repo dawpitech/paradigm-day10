@@ -18,6 +18,7 @@ class IFruit
         virtual std::string getName() const = 0;
         virtual bool isPeeled() const = 0;
         virtual void peel() = 0;
+        virtual IFruit* clone() const = 0;
 
     protected:
         unsigned int _vitamins = 0;

@@ -14,5 +14,6 @@ class Coconut : public ANut
 {
     public:
         explicit Coconut();
+        IFruit* clone() const { return new Coconut(*this); }
 };
 #endif //COCONUT_HPP

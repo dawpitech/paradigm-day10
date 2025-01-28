@@ -14,5 +14,6 @@ class Strawberry : public ABerry
 {
     public:
         explicit Strawberry();
+        IFruit* clone() const { return new Strawberry(*this); }
 };
 #endif //STRAWBERRY_HPP

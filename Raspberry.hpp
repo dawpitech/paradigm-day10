@@ -14,5 +14,6 @@ class Raspberry : public ABerry
 {
     public:
         explicit Raspberry();
+        IFruit* clone() const { return new Raspberry(*this); }
 };
 #endif //RASPBERRY_HPP

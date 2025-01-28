@@ -14,6 +14,7 @@ class BloodOrange : public Orange
 {
     public:
         explicit BloodOrange();
+        IFruit* clone() const { return new BloodOrange(*this); }
 };
 
 #endif //BLOODORANGE_HPP

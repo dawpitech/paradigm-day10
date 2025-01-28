@@ -14,5 +14,6 @@ class Grapefruit : public ACitrus
 {
     public:
         explicit Grapefruit();
+        IFruit* clone() const { return new Grapefruit(*this); }
 };
 #endif //GRAPEFRUIT_HPP
