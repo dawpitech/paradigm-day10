@@ -6,6 +6,9 @@
 */
 
 #include "FruitUtils.hpp"
+
+#include <iostream>
+
 #include "ABerry.hpp"
 #include "Lemon.hpp"
 
@@ -55,7 +58,7 @@ IFruit** FruitUtils::unpack(FruitBox** fruitBoxes)
 {
     unsigned int nbFruits = 0;
     for (int boxIdx = 0; fruitBoxes[boxIdx] != nullptr; boxIdx++) {
-        nbFruits += fruitBoxes[boxIdx]->getSize();
+        nbFruits += fruitBoxes[boxIdx]->nbFruits();
     }
     auto** fruits = new IFruit*[nbFruits + 1];
     fruits[nbFruits] = nullptr;
