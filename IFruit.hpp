@@ -21,8 +21,8 @@ class IFruit
         virtual IFruit* clone() const = 0;
 
     protected:
-        unsigned int _vitamins = 0;
         bool _isPeeled = false;
+        unsigned int _vitamins = 0;
         std::string _name;
 };
 
