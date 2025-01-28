@@ -10,7 +10,7 @@
 
     #include "ANut.hpp"
 
-class Almond final : public ANut
+class Almond : public ANut
 {
     public:
         explicit Almond();

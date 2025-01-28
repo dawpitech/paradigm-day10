@@ -10,7 +10,7 @@
 
     #include "ACitrus.hpp"
 
-class Lemon final : public ACitrus
+class Lemon : public ACitrus
 {
     public:
         explicit Lemon();

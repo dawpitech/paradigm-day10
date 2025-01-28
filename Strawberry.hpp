@@ -10,7 +10,7 @@
 
     #include "ABerry.hpp"
 
-class Strawberry final : public ABerry
+class Strawberry : public ABerry
 {
     public:
         explicit Strawberry();
