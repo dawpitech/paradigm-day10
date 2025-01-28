@@ -42,11 +42,11 @@ FruitBox** FruitUtils::pack(IFruit** fruits, unsigned int boxSize)
 
     auto** boxes = new FruitBox*[nbBox + 1];
     boxes[nbBox] = nullptr;
-    for (int idx = 0; idx < nbBox; idx++) {
+    for (unsigned int idx = 0; idx < nbBox; idx++) {
         boxes[idx] = new FruitBox(boxSize);
     }
     for (int idx = 0; idx < nbFruits; idx++) {
-        boxes[idx % nbBox]->pushFruit(fruits[idx]);
+        boxes[idx / (nbBox + 1)]->pushFruit(fruits[idx]);
     }
     return boxes;
 }
@@ -60,7 +60,7 @@ IFruit** FruitUtils::unpack(FruitBox** fruitBoxes)
     auto** fruits = new IFruit*[nbFruits + 1];
     fruits[nbFruits] = nullptr;
     int boxIdx = 0;
-    for (int idx = 0; idx < nbFruits; idx++) {
+    for (unsigned int idx = 0; idx < nbFruits; idx++) {
         auto elem = fruitBoxes[boxIdx]->popFruit();
         if (elem == nullptr) {
             boxIdx++;
