@@ -20,7 +20,7 @@ class IFruit
         virtual void peel() = 0;
 
     protected:
-        unsigned int _vitamins;
+        unsigned int _vitamins = 0;
         bool _isPeeled = false;
         std::string _name;
 };
