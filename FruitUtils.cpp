@@ -39,7 +39,7 @@ void FruitUtils::sort(FruitBox& unsorted, FruitBox& lemon, FruitBox& citrus, Fru
 
 FruitBox** FruitUtils::pack(IFruit** fruits, unsigned int boxSize)
 {
-    if (fruits == nullptr)
+    if (fruits == nullptr || boxSize == 0)
         return nullptr;
     int nbFruits;
     for (nbFruits = 0; fruits[nbFruits] != nullptr; nbFruits++) {}
