@@ -19,10 +19,4 @@ class FruitMixer : public IFruitMixer
     protected:
         IBlade* _blade = nullptr;
 };
-
-class SteelBlade : public IFruitMixer::IBlade
-{
-    public:
-        unsigned int operator()(const IFruit& fruit) const override { (void) fruit; return 0; }
-};
 #endif //FRUITMIXER_HPP
