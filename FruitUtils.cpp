@@ -50,8 +50,9 @@ FruitBox** FruitUtils::pack(IFruit** fruits, unsigned int boxSize)
     for (unsigned int idx = 0; idx < nbBox; idx++) {
         boxes[idx] = new FruitBox(boxSize);
     }
+    unsigned int boxIdx = 0;
     for (int idx = 0; idx < nbFruits; idx++) {
-        boxes[idx / (nbBox + 1)]->pushFruit(fruits[idx]);
+        while (!boxes[boxIdx]->pushFruit(fruits[idx])) { boxIdx++; }
     }
     return boxes;
 }
