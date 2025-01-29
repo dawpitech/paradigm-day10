@@ -19,10 +19,7 @@ void FruitFactory::registerFruit(IFruit* fruit)
 {
     if (fruit == nullptr)
         return;
-    for (const auto elem : this->_fruits) {
-        if (elem->getName() == fruit->getName())
-            return;
-    }
+    this->unregisterFruit(fruit->getName());
     this->_fruits.push_back(fruit);
 }
 
