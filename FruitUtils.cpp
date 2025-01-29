@@ -70,7 +70,7 @@ IFruit** FruitUtils::unpack(FruitBox** fruitBoxes)
     int boxIdx = 0;
     for (unsigned int idx = 0; idx < nbFruits; idx++) {
         auto elem = fruitBoxes[boxIdx]->popFruit();
-        if (elem == nullptr) {
+        while (elem == nullptr) {
             boxIdx++;
             elem = fruitBoxes[boxIdx]->popFruit();
         }
