@@ -65,6 +65,8 @@ IFruit** FruitUtils::unpack(FruitBox** fruitBoxes)
     for (int boxIdx = 0; fruitBoxes[boxIdx] != nullptr; boxIdx++) {
         nbFruits += fruitBoxes[boxIdx]->nbFruits();
     }
+    if (nbFruits == 0)
+        return nullptr;
     auto** fruits = new IFruit*[nbFruits + 1];
     fruits[nbFruits] = nullptr;
     int boxIdx = 0;
